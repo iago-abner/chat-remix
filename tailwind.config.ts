@@ -1,0 +1,85 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./app/**/*.{ts,tsx,jsx,js}'],
+  theme: {
+    fontSize: {
+      xs: ['12px', '16px'],
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['18px', '38px'],
+      xl: ['20px', '32px'],
+      '2xl': ['24px', '36px'],
+      '3xl': ['30px', '40px'],
+      '4xl': ['36px', '44px'],
+      '5xl': ['48px', '48px'],
+    },
+
+    extend: {
+      screens: {
+        xs: '340px',
+      },
+      colors: {
+        primary: {
+          pure: '#1169B0',
+          50: '#C0F6FF',
+          100: '#A8DFFF',
+          300: '#79B3FF',
+          400: '#619EEA',
+          500: '#4789D3',
+          600: '#2A75BD',
+          700: '#0061A7',
+          800: '#004E92',
+          900: '#003C7D',
+        },
+        secondary: {
+          pure: '#75B72A',
+          50: '#C5FF79',
+          100: '#AEF063',
+          200: '#97D94D',
+          300: '#80C236',
+          400: '#6AAC1D',
+          500: '#549700',
+          600: '#3D8200',
+          700: '#246D00',
+          800: '#075900',
+          900: '#004500',
+        },
+        highlight: {
+          pure: '#DF7153',
+          light: '#EE9C86',
+          medium: '#B83A18',
+          high: '#6B2613',
+        },
+        feedback: {
+          danger: '#B91C1C',
+          warning: '#CCA611',
+          success: '#059669',
+        },
+        high: {
+          background: '#F1F5F9',
+          pure: '#FFFFFF',
+          50: '#F3F3F3',
+          100: '#DDDDDD',
+          200: '#C6C6C6',
+          300: '#B0B0B0',
+          400: '#9B9B9B',
+          500: '#868686',
+        },
+        low: {
+          pure: '#FFFFFF',
+          50: '#A3A3A3',
+          100: '#666666',
+          200: '#5E5E5E',
+          300: '#4B4B4B',
+          400: '#393939',
+          500: '#292929',
+        },
+      },
+    },
+    fontFamily: {
+      roboto: ['Roboto'],
+      inter: ['Inter'],
+    },
+  },
+  plugins: [require('@tailwindcss/forms')],
+}

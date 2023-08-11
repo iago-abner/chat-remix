@@ -2,6 +2,7 @@ import type { ActionFunction, LoaderFunction } from '@remix-run/node'
 import { json, redirect } from '@remix-run/node'
 import { Form, useActionData } from '@remix-run/react'
 import { doesUserExist } from '~/chat.server'
+import { Layout } from '~/components/Layout'
 import { commitSession, getSession } from '~/session.server'
 
 interface ActionData {
@@ -44,16 +45,22 @@ export const action: ActionFunction = async ({ request }) => {
 
 export default function Index() {
   const actionData = useActionData<ActionData>()
+  const navPages = [
+    { titulo: 'Início', href: '#' },
+    { titulo: 'Mapa Geral', href: '#' },
+  ]
   return (
-    <main style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1>Remix Chat</h1>
-      <Form method="post">
-        <input type="text" name="user" placeholder="Username" />
-        <button type="submit">Join</button>
-      </Form>
-      {actionData?.error ? (
-        <div style={{ color: 'red' }}>{actionData.error}</div>
-      ) : null}
-    </main>
+    <Layout navigation={navPages}>
+      <main style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
+        <h1>Remix Chat</h1>
+        <Form method="post">
+          <input type="text" name="user" placeholder="Username" />
+          <button type="submit">Join</button>
+        </Form>
+        {actionData?.error ? (
+          <div style={{ color: 'red' }}>{actionData.error}</div>
+        ) : null}
+      </main>
+    </Layout>
   )
 }
